@@ -1,4 +1,4 @@
-<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
   <label>
       Name:
       <input type="text" formControlName="name"/>
@@ -15,5 +15,5 @@
       Level:
       <input type="number" formControlName="level"/>
   </label>
-  <input type="submit" name="submit" value="submit" [disabled]="!eventForm.valid" />
+  <input type="submit" name="submit" value="submit" [disabled]="!courseForm.valid" />
 </form>

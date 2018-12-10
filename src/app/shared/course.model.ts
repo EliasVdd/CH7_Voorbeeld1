@@ -1,4 +1,4 @@
-export class Event{
+export class Course{
     name: string;
     location: string;
     speaker: string;

@@ -1,8 +1,8 @@
 <app-header></app-header>
 <p>
-  Onderstaand formulier wordt gebruikt om een event aan te maken. Bij het aanmaken komt dit automatisch bij in onderstaande lijst
+  Onderstaand formulier wordt gebruikt om een course aan te maken. Bij het aanmaken komt dit automatisch bij in onderstaande lijst
 </p>
-<app-new-event (insertEvent)="refreshList()"></app-new-event>
+<app-new-course (insertCourse)="refreshList()"></app-new-course>
 
 <table>
     <tr>
@@ -13,13 +13,13 @@
         <th>Update</th>
     </tr>
 
-    <tr *ngFor="let event of events; let i=index">
-      <td>{{event.name}}</td>
-      <td>{{event.speaker}}</td>
-      <td>{{event.location}}</td>
-      <td>{{event.level}}</td>
+    <tr *ngFor="let course of courses; let i=index">
+      <td>{{course.name}}</td>
+      <td>{{course.speaker}}</td>
+      <td>{{course.location}}</td>
+      <td>{{course.level}}</td>
       <td><button (click)="triggerUpdate(i)">Update</button></td>
     </tr>
   </table>
 
-  <app-update-event *ngIf="isUpdating" [event]="updatingEvent" (updateEvent)="finishUpdate($event)"></app-update-event>
+  <app-update-course *ngIf="isUpdating" [course]="updatingCourse" (updateCourse)="finishUpdate($event)"></app-update-course>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Event } from './shared/event.model';
-import { EventService } from './shared/event.service';
+import { Course } from './shared/course.model';
+import { CourseService } from './shared/course.service';
 
 @Component({
   selector: 'app-root',
@@ -8,31 +8,31 @@ import { EventService } from './shared/event.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  events: Event[];
+  courses: Course[];
   isUpdating: boolean = false;
   updatingIndex: number;
-  updatingEvent: Event;
+  updatingCourse: Course;
 
-  constructor(private eventService: EventService) { }
+  constructor(private courseService: CourseService) { }
 
   ngOnInit() {
    this.refreshList();
   }
 
   refreshList(): void{
-    this.events = this.eventService.getEvents();
+    this.courses = this.courseService.getCourses();
   }
 
   triggerUpdate(index: number){
     this.isUpdating = true;
     this.updatingIndex = index;
-    this.updatingEvent = this.eventService.getEvent(index);
+    this.updatingCourse = this.courseService.getCourse(index);
   }
 
-  finishUpdate(event: Event){
-    this.eventService.updateEvent(event, this.updatingIndex);
+  finishUpdate(course: Course){
+    this.courseService.updateCourse(course, this.updatingIndex);
     this.isUpdating = false;
-    this.updatingEvent = undefined;
+    this.updatingCourse = undefined;
     this.refreshList();
   }
 
